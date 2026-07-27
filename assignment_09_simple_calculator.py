@@ -67,4 +67,84 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
+def add(a, b):
+    return a + b
 
+
+def subtract(a, b):
+    return a - b
+
+
+def multiply(a, b):
+    return a * b
+
+
+def divide(a, b):
+    return round(a / b, 2)
+
+
+def modulus(a, b):
+    return a % b
+
+
+def exponentiate(a, b):
+    return a ** b
+
+
+def print_menu():
+    print("============================")
+    print("     SIMPLE CALCULATOR")
+    print("============================")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    print("5. Modulus")
+    print("6. Exponentiation")
+    print("7. Quit")
+
+
+def main():
+    while True:
+        print_menu()
+        choice = input("Select an operation (1-7): ")
+        print()
+
+        if choice == "7":
+            print("Goodbye!")
+            break
+
+        if choice != "1" and choice != "2" and choice != "3" and choice != "4" and choice != "5" and choice != "6":
+            print("Error: Invalid choice. Please enter a number from 1 to 7.")
+            print()
+            continue
+
+        a = float(input("Enter first number : "))
+        b = float(input("Enter second number: "))
+
+        if choice == "1":
+            result = add(a, b)
+            print("Result:", a, "+", b, "=", result)
+        elif choice == "2":
+            result = subtract(a, b)
+            print("Result:", a, "-", b, "=", result)
+        elif choice == "3":
+            result = multiply(a, b)
+            print("Result:", a, "*", b, "=", result)
+        elif choice == "4":
+            if b == 0:
+                print("Error: Cannot divide by zero.")
+            else:
+                result = divide(a, b)
+                print("Result:", a, "/", b, "=", result)
+        elif choice == "5":
+            result = modulus(a, b)
+            print("Result:", a, "%", b, "=", result)
+        elif choice == "6":
+            result = exponentiate(a, b)
+            print("Result:", a, "**", b, "=", result)
+
+        print()
+
+
+main()
