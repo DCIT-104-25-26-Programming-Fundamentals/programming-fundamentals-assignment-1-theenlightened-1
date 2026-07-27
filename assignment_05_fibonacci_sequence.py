@@ -48,4 +48,122 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
+def print_fibonacci_terms(n):
+    """Print the first n Fibonacci numbers on one line, using a loop."""
+    sequence = []
+    a, b = 0, 1
+    for _ in range(n):
+        sequence.append(a)
+        a, b = b, a + b
 
+    print("Fibonacci sequence:", " ".join(str(num) for num in sequence))
+
+
+def is_fibonacci_number(num):
+    """Return True if num appears in the Fibonacci sequence, using a loop."""
+    if num < 0:
+        return False
+
+    a, b = 0, 1
+    while a <= num:
+        if a == num:
+            return True
+        a, b = b, a + b
+
+    return False
+
+
+def part_a():
+    print("\n--- Part A: First N Terms ---")
+    n = int(input("How many terms? "))
+
+    if n <= 0:
+        print("Error: N must be a positive integer.")
+        return
+
+    print_fibonacci_terms(n)
+
+
+def part_b():
+    print("\n--- Part B: Check Membership ---")
+    num = int(input("Enter a number to check: "))
+
+    if is_fibonacci_number(num):
+        print(f"{num} is a Fibonacci number.")
+    else:
+        print(f"{num} is NOT a Fibonacci number.")
+
+
+def main():
+    part_a()
+    part_b()
+
+
+if __name__ == "__main__":
+    main()
+def print_fibonacci_terms(n):
+    sequence = []
+    first = 0
+    second = 1
+
+    count = 0
+    while count < n:
+        sequence.append(first)
+        temp = first + second
+        first = second
+        second = temp
+        count = count + 1
+
+    line = ""
+    for num in sequence:
+        line = line + str(num) + " "
+    print("Fibonacci sequence:", line)
+
+
+def is_fibonacci_number(num):
+    if num < 0:
+        return False
+
+    first = 0
+    second = 1
+
+    while first <= num:
+        if first == num:
+            return True
+        temp = first + second
+        first = second
+        second = temp
+
+    return False
+
+
+def part_a():
+    print()
+    print("--- Part A: First N Terms ---")
+    n = int(input("How many terms? "))
+
+    if n <= 0:
+        print("Error: N must be a positive integer.")
+        return
+
+    print_fibonacci_terms(n)
+
+
+def part_b():
+    print()
+    print("--- Part B: Check Membership ---")
+    num = int(input("Enter a number to check: "))
+
+    result = is_fibonacci_number(num)
+    if result == True:
+        print(num, "is a Fibonacci number.")
+    else:
+        print(num, "is NOT a Fibonacci number.")
+
+
+def main():
+    part_a()
+    part_b()
+
+
+main()
